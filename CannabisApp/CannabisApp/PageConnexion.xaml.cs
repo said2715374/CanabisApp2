@@ -1,23 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CannabisApp
 {
-    /// <summary>
-    /// Logique d'interaction pour Page1.xaml
-    /// </summary>
     public partial class Page1 : Page
     {
         public Page1()
@@ -27,11 +13,28 @@ namespace CannabisApp
 
         private void Connexion_Click(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.MainWindow is MainWindow mainWindow)
+            string username = nomDutilisateur.Text;
+            string password = motDePasse.Password;
+
+            if (username == "admin" && password == "password") // Remplacer par une vraie vérification
             {
-                // Naviguer vers Page2 dans le MainFrame de MainWindow
-                mainWindow.MainFrame.Navigate(new Page2());
+                MessageBox.Show("Connexion réussie !");
+                // Naviguer vers la page principale après la connexion
+                var mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.MainFrame.Navigate(new Page2());
+                }
             }
+            else
+            {
+                MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.");
+            }
+        }
+
+        private void Quitter_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
