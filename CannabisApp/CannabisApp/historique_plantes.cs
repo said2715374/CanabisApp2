@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace CannabisApp
 {
-    class historique_plantes
+    public class Historique_Plantes
     {
-        public int id_historique {  get; set; }
-        public int id_plante {  get; set; }
-        public string action { get; set; }
-        public DateTime timestamp { get; set; }
-        public int id_utilisateur { get; set; }
-
+        public int IdHistorique { get; set; }
+        public int IdPlante { get; set; }
+        public string Action { get; set; }
+        public DateTime Timestamp { get; set; }
+        public int IdUtilisateur { get; set; }
     }
 }

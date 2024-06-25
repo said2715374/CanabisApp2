@@ -22,7 +22,7 @@ namespace CannabisApp
 
         private void LoadProvenances()
         {
-            var provenances = _context.provenances.ToList();
+            var provenances = _context.Provenances.ToList();
             ProvenanceComboBox.ItemsSource = provenances;
         }
 
@@ -30,7 +30,8 @@ namespace CannabisApp
         {
             var description = Description.Text;
             var stade = Stade.Text;
-            var selectedProvenance = (provenances)ProvenanceComboBox.SelectedItem;
+            var identification = Identification.Text;
+            var selectedProvenance = (Provenances)ProvenanceComboBox.SelectedItem;
             var quantite = int.Parse(Quantite.Text);
             var dateExpiration = DateTime.Parse(DateExpiration.Text);
             var emplacement = Emplacement.Text;
@@ -42,21 +43,23 @@ namespace CannabisApp
             }
 
             // Génération du code QR
-            var codeQr = GenererCodeQR(description, selectedProvenance.ville);
+            var codeQr = GenererCodeQR(description, selectedProvenance.Ville);
 
-            var nouvellePlante = new plantes
+            var nouvellePlante = new Plantes
             {
-                nom = description,
-                emplacement = emplacement,
-                code_qr = codeQr,
-                etat_sante = 1, // Exemple de valeur par défaut
-                nombre_plantes_actives = quantite,
-                date_expiration = dateExpiration,
-                cree_le = DateTime.Now,
-                id_provenance = selectedProvenance.id_provenance
+                Nom = description,
+                Emplacement = emplacement,
+                CodeQr = codeQr,
+                EtatSante = 1, // Exemple de valeur par défaut
+                NombrePlantesActives = quantite,
+                DateExpiration = dateExpiration,
+                CreeLe = DateTime.Now,
+                IdProvenance = selectedProvenance.IdProvenance,
+                Stade = stade,
+                Identification = identification
             };
 
-            _context.plantes.Add(nouvellePlante);
+            _context.Plantes.Add(nouvellePlante);
             _context.SaveChanges();
             MessageBox.Show("Nouvelle plante ajoutée avec succès !");
         }
