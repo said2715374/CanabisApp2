@@ -13,8 +13,9 @@ namespace CannabisApp
     {
         private plantes _plante;
 
-        public DetailsPlante(plantes plante)
+        public DetailsPlante()
         {
+            plantes plante = new plantes();
             InitializeComponent();
             _plante = plante;
             LoadPlanteDetails();
@@ -32,10 +33,10 @@ namespace CannabisApp
             StadeText.Text = _plante.stade;
             IdentificationText.Text = _plante.identification;
 
-            QRCodeImage.Source = GenererQRCode(_plante.code_qr);
+            // QRCodeImage.Source = GenererQRCode(_plante.code_qr);
         }
 
-        private BitmapImage GenererQRCode(string text)
+        /*private BitmapImage GenererQRCode(string text)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
@@ -53,7 +54,7 @@ namespace CannabisApp
                 bitmapImage.EndInit();
                 return bitmapImage;
             }
-        }
+        }*/
 
         private void Modifier_Click(object sender, RoutedEventArgs e)
         {

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CannabisApp
 {
+    [Table("historique_plantes")]
     public class Historique_Plantes
     {
         public int IdHistorique { get; set; }

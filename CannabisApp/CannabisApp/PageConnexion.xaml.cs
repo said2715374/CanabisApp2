@@ -23,6 +23,7 @@ namespace CannabisApp
                 var mainWindow = Window.GetWindow(this) as MainWindow;
                 if (mainWindow != null)
                 {
+
                     mainWindow.MainFrame.Navigate(new AjouterPlante());
                 }
             }
