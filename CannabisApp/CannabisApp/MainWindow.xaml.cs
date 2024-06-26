@@ -1,80 +1,68 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static CannabisApp.MainWindow;
 
 namespace CannabisApp
 {
-    
     public partial class MainWindow : Window
     {
-       internal class PlantRepository
-    {
-        private readonly AppDbContext _context;
+        internal class PlantRepository
+        {
+            private readonly AppDbContext _context;
 
-        public PlantRepository(AppDbContext context)
-        {
-            _context = context;
-        }
-            /// <summary>
-            /// fonction de la table plantes 
-            /// </summary>
-            public void AddPlante(plantes plante)
-        {
-            _context.plantes.Add(plante);
-            _context.SaveChanges();
-        }
-
-        public void UpdatePlante(plantes plante)
-        {
-            var existingPlante = _context.plantes.Find(plante.id_plante);
-            if (existingPlante != null)
+            public PlantRepository(AppDbContext context)
             {
-                existingPlante.nom = plante.nom;
-                existingPlante.emplacement = plante.emplacement;
-                existingPlante.code_qr = plante.code_qr;
-                existingPlante.id_provenance = plante.id_provenance;
-                existingPlante.etat_sante = plante.etat_sante;
-                existingPlante.nombre_plantes_actives = plante.nombre_plantes_actives;
-                existingPlante.date_expiration = plante.date_expiration;
-                existingPlante.cree_le = plante.cree_le;
+                _context = context;
+            }
 
+            public void AddPlante(Plantes plante)
+            {
+                _context.Plantes.Add(plante);
                 _context.SaveChanges();
             }
-        }
 
-        public void DeletePlante(int idPlante)
-        {
-            var plante = _context.plantes.Find(idPlante);
-            if (plante != null)
+            public void UpdatePlante(Plantes plante)
             {
-                _context.plantes.Remove(plante);
-                _context.SaveChanges();
+                var existingPlante = _context.Plantes.Find(plante.IdPlante);
+                if (existingPlante != null)
+                {
+                    existingPlante.Nom = plante.Nom;
+                    existingPlante.Emplacement = plante.Emplacement;
+                    existingPlante.CodeQr = plante.CodeQr;
+                    existingPlante.IdProvenance = plante.IdProvenance;
+                    existingPlante.EtatSante = plante.EtatSante;
+                    existingPlante.NombrePlantesActives = plante.NombrePlantesActives;
+                    existingPlante.DateExpiration = plante.DateExpiration;
+                    existingPlante.CreeLe = plante.CreeLe;
+
+                    _context.SaveChanges();
+                }
+            }
+
+            public void DeletePlante(int idPlante)
+            {
+                var plante = _context.Plantes.Find(idPlante);
+                if (plante != null)
+                {
+                    _context.Plantes.Remove(plante);
+                    _context.SaveChanges();
+                }
+            }
+
+            public List<Plantes> GetPlantes()
+            {
+                return _context.Plantes.ToList();
+            }
+
+            public Plantes GetPlanteById(int idPlante)
+            {
+                return _context.Plantes.Find(idPlante);
             }
         }
 
-        public List<plantes> GetPlantes()
-        {
-            return _context.plantes.ToList();
-        }
-            
-            public plantes GetPlanteById(int idPlante)
-            {
-                return _context.plantes.Find(idPlante);
-            }
-        }
-        private PlantRepository _plantRepository;
+        private readonly PlantRepository _plantRepository;
 
-        /// <summary>
-        /// fonction de la table utilisateur
-        /// </summary>
         internal class UserRepository
         {
             private readonly AppDbContext _context;
@@ -84,20 +72,20 @@ namespace CannabisApp
                 _context = context;
             }
 
-            public void AddUser(utilisateur user)
+            public void AddUser(Utilisateur user)
             {
-                _context.utilisateurs.Add(user);
+                _context.Utilisateurs.Add(user);
                 _context.SaveChanges();
             }
 
-            public void UpdateUser(utilisateur user)
+            public void UpdateUser(Utilisateur user)
             {
-                var existingUser = _context.utilisateurs.Find(user.id_utilisateur);
+                var existingUser = _context.Utilisateurs.Find(user.IdUtilisateur);
                 if (existingUser != null)
                 {
-                    existingUser.nom_utilisateur = user.nom_utilisateur;
-                    existingUser.mot_de_passe = user.mot_de_passe;
-                    existingUser.id_role = user.id_role;
+                    existingUser.NomUtilisateur = user.NomUtilisateur;
+                    existingUser.MotDePasse = user.MotDePasse;
+                    existingUser.IdRole = user.IdRole;
 
                     _context.SaveChanges();
                 }
@@ -105,29 +93,27 @@ namespace CannabisApp
 
             public void DeleteUser(int userId)
             {
-                var user = _context.utilisateurs.Find(userId);
+                var user = _context.Utilisateurs.Find(userId);
                 if (user != null)
                 {
-                    _context.utilisateurs.Remove(user);
+                    _context.Utilisateurs.Remove(user);
                     _context.SaveChanges();
                 }
             }
 
-            public List<utilisateur> GetUsers()
+            public List<Utilisateur> GetUsers()
             {
-                return _context.utilisateurs.ToList();
+                return _context.Utilisateurs.ToList();
             }
-            public utilisateur GetUserById(int userId)
+
+            public Utilisateur GetUserById(int userId)
             {
-                return _context.utilisateurs.Find(userId);
+                return _context.Utilisateurs.Find(userId);
             }
         }
 
-        private UserRepository _userRepository;
+        private readonly UserRepository _userRepository;
 
-        /// <summary>
-        /// fonction de la table roles
-        /// </summary>
         internal class RoleRepository
         {
             private readonly AppDbContext _context;
@@ -137,18 +123,18 @@ namespace CannabisApp
                 _context = context;
             }
 
-            public void AddRole(roles role)
+            public void AddRole(Roles role)
             {
-                _context.roles.Add(role);
+                _context.Roles.Add(role);
                 _context.SaveChanges();
             }
 
-            public void UpdateRole(roles role)
+            public void UpdateRole(Roles role)
             {
-                var existingRole = _context.roles.Find(role.id_role);
+                var existingRole = _context.Roles.Find(role.IdRole);
                 if (existingRole != null)
                 {
-                    existingRole.nom_role = role.nom_role;
+                    existingRole.NomRole = role.NomRole;
 
                     _context.SaveChanges();
                 }
@@ -156,28 +142,27 @@ namespace CannabisApp
 
             public void DeleteRole(int roleId)
             {
-                var role = _context.roles.Find(roleId);
+                var role = _context.Roles.Find(roleId);
                 if (role != null)
                 {
-                    _context.roles.Remove(role);
+                    _context.Roles.Remove(role);
                     _context.SaveChanges();
                 }
             }
 
-            public List<roles> GetRoles()
+            public List<Roles> GetRoles()
             {
-                return _context.roles.ToList();
+                return _context.Roles.ToList();
             }
 
-            public roles GetRoleById(int roleId)
+            public Roles GetRoleById(int roleId)
             {
-                return _context.roles.Find(roleId);
+                return _context.Roles.Find(roleId);
             }
         }
-        private RoleRepository _roleRepository;
-        /// <summary>
-        /// fonction de la table provnance 
-        /// </summary>
+
+        private readonly RoleRepository _roleRepository;
+
         internal class ProvenanceRepository
         {
             private readonly AppDbContext _context;
@@ -187,20 +172,20 @@ namespace CannabisApp
                 _context = context;
             }
 
-            public void AddProvenance(provenances provenance)
+            public void AddProvenance(Provenances provenance)
             {
-                _context.provenances.Add(provenance);
+                _context.Provenances.Add(provenance);
                 _context.SaveChanges();
             }
 
-            public void UpdateProvenance(provenances provenance)
+            public void UpdateProvenance(Provenances provenance)
             {
-                var existingProvenance = _context.provenances.Find(provenance.id_provenance);
+                var existingProvenance = _context.Provenances.Find(provenance.IdProvenance);
                 if (existingProvenance != null)
                 {
-                    existingProvenance.ville = provenance.ville;
-                    existingProvenance.province = provenance.province;
-                    existingProvenance.pays = provenance.pays;
+                    existingProvenance.Ville = provenance.Ville;
+                    existingProvenance.Province = provenance.Province;
+                    existingProvenance.Pays = provenance.Pays;
 
                     _context.SaveChanges();
                 }
@@ -208,29 +193,27 @@ namespace CannabisApp
 
             public void DeleteProvenance(int provenanceId)
             {
-                var provenance = _context.provenances.Find(provenanceId);
+                var provenance = _context.Provenances.Find(provenanceId);
                 if (provenance != null)
                 {
-                    _context.provenances.Remove(provenance);
+                    _context.Provenances.Remove(provenance);
                     _context.SaveChanges();
                 }
             }
 
-            public List<provenances> GetProvenances()
+            public List<Provenances> GetProvenances()
             {
-                return _context.provenances.ToList();
+                return _context.Provenances.ToList();
             }
 
-            public provenances GetProvenanceById(int provenanceId)
+            public Provenances GetProvenanceById(int provenanceId)
             {
-                return _context.provenances.Find(provenanceId);
+                return _context.Provenances.Find(provenanceId);
             }
         }
 
-        private ProvenanceRepository _provenanceRepository;
-        /// <summary>
-        /// fonction de la table inventaire
-        /// </summary>
+        private readonly ProvenanceRepository _provenanceRepository;
+
         internal class InventaireRepository
         {
             private readonly AppDbContext _context;
@@ -240,20 +223,20 @@ namespace CannabisApp
                 _context = context;
             }
 
-            public void AddInventaire(inventaire inventaire)
+            public void AddInventaire(Inventaire inventaire)
             {
-                _context.inventaire.Add(inventaire);
+                _context.Inventaire.Add(inventaire);
                 _context.SaveChanges();
             }
 
-            public void UpdateInventaire(inventaire inventaire)
+            public void UpdateInventaire(Inventaire inventaire)
             {
-                var existingInventaire = _context.inventaire.Find(inventaire.id_inventaire);
+                var existingInventaire = _context.Inventaire.Find(inventaire.IdInventaire);
                 if (existingInventaire != null)
                 {
-                    existingInventaire.id_plante = inventaire.id_plante;
-                    existingInventaire.quantite = inventaire.quantite;
-                    existingInventaire.derniere_verification = inventaire.derniere_verification;
+                    existingInventaire.IdPlante = inventaire.IdPlante;
+                    existingInventaire.Quantite = inventaire.Quantite;
+                    existingInventaire.DerniereVerification = inventaire.DerniereVerification;
 
                     _context.SaveChanges();
                 }
@@ -261,28 +244,27 @@ namespace CannabisApp
 
             public void DeleteInventaire(int inventaireId)
             {
-                var inventaire = _context.inventaire.Find(inventaireId);
+                var inventaire = _context.Inventaire.Find(inventaireId);
                 if (inventaire != null)
                 {
-                    _context.inventaire.Remove(inventaire);
+                    _context.Inventaire.Remove(inventaire);
                     _context.SaveChanges();
                 }
             }
 
-            public List<inventaire> GetInventaires()
+            public List<Inventaire> GetInventaires()
             {
-                return _context.inventaire.ToList();
+                return _context.Inventaire.ToList();
             }
 
-            public inventaire GetInventaireById(int inventaireId)
+            public Inventaire GetInventaireById(int inventaireId)
             {
-                return _context.inventaire.Find(inventaireId);
+                return _context.Inventaire.Find(inventaireId);
             }
         }
-        private InventaireRepository _inventaireRepository;
-        /// <summary>
-        /// fonction de la table Historique_Plantes
-        /// </summary>
+
+        private readonly InventaireRepository _inventaireRepository;
+
         internal class HistoriquePlantesRepository
         {
             private readonly AppDbContext _context;
@@ -292,21 +274,21 @@ namespace CannabisApp
                 _context = context;
             }
 
-            public void AddHistoriquePlantes(historique_plantes historiquePlantes)
+            public void AddHistoriquePlantes(Historique_Plantes historiquePlantes)
             {
-                _context.historique_plantes.Add(historiquePlantes);
+                _context.HistoriquePlantes.Add(historiquePlantes);
                 _context.SaveChanges();
             }
 
-            public void UpdateHistoriquePlantes(historique_plantes historiquePlantes)
+            public void UpdateHistoriquePlantes(Historique_Plantes historiquePlantes)
             {
-                var existingHistoriquePlantes = _context.historique_plantes.Find(historiquePlantes.id_historique);
+                var existingHistoriquePlantes = _context.HistoriquePlantes.Find(historiquePlantes.IdHistorique);
                 if (existingHistoriquePlantes != null)
                 {
-                    existingHistoriquePlantes.id_plante = historiquePlantes.id_plante;
-                    existingHistoriquePlantes.action = historiquePlantes.action;
-                    existingHistoriquePlantes.timestamp = historiquePlantes.timestamp;
-                    existingHistoriquePlantes.id_utilisateur = historiquePlantes.id_utilisateur;
+                    existingHistoriquePlantes.IdPlante = historiquePlantes.IdPlante;
+                    existingHistoriquePlantes.Action = historiquePlantes.Action;
+                    existingHistoriquePlantes.Timestamp = historiquePlantes.Timestamp;
+                    existingHistoriquePlantes.IdUtilisateur = historiquePlantes.IdUtilisateur;
 
                     _context.SaveChanges();
                 }
@@ -314,32 +296,29 @@ namespace CannabisApp
 
             public void DeleteHistoriquePlantes(int historiquePlantesId)
             {
-                var historiquePlantes = _context.historique_plantes.Find(historiquePlantesId);
+                var historiquePlantes = _context.HistoriquePlantes.Find(historiquePlantesId);
                 if (historiquePlantes != null)
                 {
-                    _context.historique_plantes.Remove(historiquePlantes);
+                    _context.HistoriquePlantes.Remove(historiquePlantes);
                     _context.SaveChanges();
                 }
             }
 
-            public List<historique_plantes> GetHistoriquePlantes()
+            public List<Historique_Plantes> GetHistoriquePlantes()
             {
-                return _context.historique_plantes.ToList();
+                return _context.HistoriquePlantes.ToList();
             }
 
-            public historique_plantes GetHistoriquePlantesById(int historiquePlantesId)
+            public Historique_Plantes GetHistoriquePlantesById(int historiquePlantesId)
             {
-                return _context.historique_plantes.Find(historiquePlantesId);
+                return _context.HistoriquePlantes.Find(historiquePlantesId);
             }
         }
 
-        HistoriquePlantesRepository _historiquePlantesRepository;
-        /// <summary>
-        /// debut de main 
-        /// </summary>
+        private readonly HistoriquePlantesRepository _historiquePlantesRepository;
+
         public MainWindow()
         {
-           
             _plantRepository = new PlantRepository(new AppDbContext());
             _userRepository = new UserRepository(new AppDbContext());
             _roleRepository = new RoleRepository(new AppDbContext());
@@ -347,27 +326,19 @@ namespace CannabisApp
             _inventaireRepository = new InventaireRepository(new AppDbContext());
             _historiquePlantesRepository = new HistoriquePlantesRepository(new AppDbContext());
 
-            
             InitializeComponent();
 
-            
-                MainFrame.Navigate(new Page1());
-            
+            MainFrame.Navigate(new Page1());
         }
 
-
-        private void nomDutilisateur_TextChanged(object sender, TextChangedEventArgs e)
+        private void NomDutilisateur_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-
-            //_plantRepository.AddPlante(plante1);
-            //_userRepository.DeleteUser(3);
+            // Exemple de méthode pour le TextChanged event
         }
 
         private void Connexion_Click(object sender, RoutedEventArgs e)
         {
-            
-           
+            // Exemple de méthode pour le Click event
         }
     }
 }

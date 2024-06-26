@@ -10,7 +10,16 @@
     <Compile Update="AjouterPlante.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AjouterUtilisateur.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DetailsPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HistoriquePlantePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HisPlantes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ModifierPlante.xaml.cs">
@@ -30,7 +39,16 @@
     <Page Update="AjouterPlante.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="AjouterUtilisateur.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DetailsPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HistoriquePlantePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HisPlantes.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

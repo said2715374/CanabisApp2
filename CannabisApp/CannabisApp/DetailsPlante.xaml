@@ -16,13 +16,16 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="700">
-                <TextBlock x:Name="NomPlante" Text="Nom de la Plante" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="650">
+                <DockPanel LastChildFill="False" Margin="0,0,0,10">
+                    <TextBlock x:Name="NomPlante" Text="Nom de la Plante" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <Image x:Name="QRCodeImage" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Right" Margin="10,0,0,0"/>
+                </DockPanel>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -32,41 +35,36 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Description:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="DescriptionPlante" Text="Description: ..." Margin="0,10,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Emplacement:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="EmplacementText" Margin="0,10,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Provenance:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="ProvenancePlante" Text="Provenance: ..." Margin="0,10,0,5" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+                    <TextBlock Text="Provenance:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="IdProvenanceText" Margin="0,10,0,5" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Stade:" Margin="0,10,10,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="StadePlante" Text="Stade: ..." Margin="0,10,0,5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="État de Santé:" Margin="0,10,10,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="EtatSanteText" Margin="0,10,0,5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Date d'Ajout:" Margin="0,10,10,5" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="DateAjoutPlante" Text="Date d'Ajout: ..." Margin="0,10,0,5" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                    <TextBlock Text="Quantité Disponible (kg):" Margin="0,10,10,5" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="NombrePlantesActivesText" Margin="0,10,0,5" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="État de Santé:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="EtatSantePlante" Text="État de Santé: ..." Margin="0,10,0,5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Date d'Ajout:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="CreeLeText" Margin="0,10,0,5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Dernière mise à jour:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="DerniereMiseAJourPlante" Text="Dernière mise à jour: ..." Margin="0,10,0,5" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
+                    <TextBlock Text="Date d'Expiration:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="DateExpirationText" Margin="0,10,0,5" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Emplacement:" Margin="0,10,10,5" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="EmplacementPlante" Text="Emplacement: ..." Margin="0,10,0,5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Stade:" Margin="0,10,10,5" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="StadeText" Margin="0,10,0,5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
 
-                    <TextBlock Text="Quantité Disponible (kg):" Margin="0,10,10,5" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="QuantiteDisponiblePlante" Text="Quantité Disponible (kg): ..." Margin="0,10,0,5" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center"/>
-
-                    <TextBlock Text="Date d'Expiration:" Margin="0,10,10,5" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="DateExpirationPlante" Text="Date d'Expiration: ..." Margin="0,10,0,5" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Identification:" Margin="0,10,10,5" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock x:Name="IdentificationText" Margin="0,10,0,5" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
                 </Grid>
 
-                <Image x:Name="QRCodeImage" Height="100" Width="100" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                    <Button Content="Modifier ce produit" Height="40" Width="150" Margin="5" Click="Modifier_Click"/>
-                    <Button Content="Retirer ce produit" Height="40" Width="150" Margin="5" Click="Retirer_Click"/>
-                    <Button Content="Ajouter Un Autre Produit" Height="40" Width="150" Margin="5" Click="AjouterAutre_Click"/>
-                    <Button Content="Produit Suivant" Height="40" Width="150" Margin="5" Click="ProduitSuivant_Click"/>
+                    <Button Content="Modifier ce produit" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Modifier_Click"/>
+                    <Button Content="Retirer ce produit" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Retirer_Click"/>
+                    <Button Content="Voir l'Historique" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click"/>
+                    <Button Content="Produit Suivant" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Suivant_Click"/>
                 </StackPanel>
             </StackPanel>
         </Border>

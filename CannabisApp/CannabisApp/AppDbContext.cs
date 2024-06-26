@@ -1,80 +1,104 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace CannabisApp
 {
-    class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public DbSet<utilisateur> utilisateurs { get; set; }
-        public DbSet<provenances> provenances { get; set; }
-        public DbSet<inventaire> inventaire { get; set; }
-        public DbSet<plantes> plantes { get; set; }
-        public DbSet<historique_plantes> historique_plantes { get; set; }
-        public DbSet<roles> roles { get; set; }
+        public DbSet<Utilisateur> Utilisateurs { get; set; }
+        public DbSet<Provenances> Provenances { get; set; }
+        public DbSet<Inventaire> Inventaire { get; set; }
+        public DbSet<Plantes> Plantes { get; set; }
+        public DbSet<Historique_Plantes> HistoriquePlantes { get; set; }
+        public DbSet<Roles> Roles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Integrated Security=True;\r\n",
-                 sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
-             );
+                "Data Source=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Integrated Security=True;",
+                sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
+            );
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {// Configurer l'entité 'provenances'
-            modelBuilder.Entity<provenances>()
-                .HasKey(p => p.id_provenance);
-
-            // Configurer l'entité 'historique_plantes'
-            modelBuilder.Entity<historique_plantes>()
-                .HasKey(h => h.id_historique);
-            modelBuilder.Entity<historique_plantes>()
-                .HasOne<utilisateur>()
+        {
+            modelBuilder.Entity<Provenances>().HasKey(p => p.IdProvenance);
+            modelBuilder.Entity<Historique_Plantes>().HasKey(h => h.IdHistorique);
+            modelBuilder.Entity<Historique_Plantes>()
+                .HasOne<Utilisateur>()
                 .WithMany()
-                .HasForeignKey(h => h.id_utilisateur)
-                .OnDelete(DeleteBehavior.Restrict); // Relation avec 'utilisateurs'
-            modelBuilder.Entity<historique_plantes>()
-                .HasOne<plantes>()
+                .HasForeignKey(h => h.IdUtilisateur)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Historique_Plantes>()
+                .HasOne<Plantes>()
                 .WithMany()
-                .HasForeignKey(h => h.id_plante)
-                .OnDelete(DeleteBehavior.Restrict); // Relation avec 'plantes'
-
-            // Configurer l'entité 'roles'
-            modelBuilder.Entity<roles>()
-                .HasKey(r => r.id_role);
-
-            // Configurer l'entité 'plantes'
-            modelBuilder.Entity<plantes>()
-                .HasKey(p => p.id_plante);
-            modelBuilder.Entity<plantes>()
-                .HasOne<provenances>()
+                .HasForeignKey(h => h.IdPlante)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Roles>().HasKey(r => r.IdRole);
+            modelBuilder.Entity<Plantes>().HasKey(p => p.IdPlante);
+            modelBuilder.Entity<Plantes>()
+                .HasOne<Provenances>()
                 .WithMany()
-                .HasForeignKey(p => p.id_provenance)
-                .OnDelete(DeleteBehavior.Cascade); // Relation avec 'provenances'
-
-            // Configurer l'entité 'inventaire'
-            modelBuilder.Entity<inventaire>()
-                .HasKey(i => i.id_inventaire);
-            modelBuilder.Entity<inventaire>()
-                .HasOne<plantes>()
+                .HasForeignKey(p => p.IdProvenance)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Inventaire>().HasKey(i => i.IdInventaire);
+            modelBuilder.Entity<Inventaire>()
+                .HasOne<Plantes>()
                 .WithMany()
-                .HasForeignKey(i => i.id_plante)
-                .OnDelete(DeleteBehavior.Cascade); // Relation avec 'plantes'
-
-            // Configurer l'entité 'utilisateurs'
-            modelBuilder.Entity<utilisateur>()
-                .HasKey(u => u.id_utilisateur);
-            modelBuilder.Entity<utilisateur>()
-                .HasOne<roles>()
+                .HasForeignKey(i => i.IdPlante)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Utilisateur>().HasKey(u => u.IdUtilisateur);
+            modelBuilder.Entity<Utilisateur>()
+                .HasOne<Roles>()
                 .WithMany()
-                .HasForeignKey(u => u.id_role)
-                .OnDelete(DeleteBehavior.Restrict); // Relation avec 'roles'
-
+                .HasForeignKey(u => u.IdRole)
+                .OnDelete(DeleteBehavior.Restrict);
         }
+    }
+
+    public class Utilisateur
+    {
+        public int IdUtilisateur { get; set; }
+        public string NomUtilisateur { get; set; }
+        public string MotDePasse { get; set; }
+        public int IdRole { get; set; }
+    }
+
+    public class Provenances
+    {
+        public int IdProvenance { get; set; }
+        public string Ville { get; set; }
+        public string Province { get; set; }
+        public string Pays { get; set; }
+    }
+
+    public class Inventaire
+    {
+        public int IdInventaire { get; set; }
+        public int IdPlante { get; set; }
+        public int Quantite { get; set; }
+        public DateTime DerniereVerification { get; set; }
+    }
+
+    public class Plantes
+    {
+        public int IdPlante { get; set; }
+        public string Nom { get; set; }
+        public string Emplacement { get; set; }
+        public string CodeQr { get; set; }
+        public int IdProvenance { get; set; }
+        public int EtatSante { get; set; }
+        public int NombrePlantesActives { get; set; }
+        public DateTime DateExpiration { get; set; }
+        public DateTime CreeLe { get; set; }
+        public string Stade { get; set; }
+        public string Identification { get; set; }
+    }
+
+    public class Roles
+    {
+        public int IdRole { get; set; }
+        public string NomRole { get; set; }
     }
 }

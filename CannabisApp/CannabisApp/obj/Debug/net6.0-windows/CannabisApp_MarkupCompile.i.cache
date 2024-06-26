@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
 CannabisApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml
-7839987729
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml
+10-1893450205
 
-231038120202
-2331805348095
-AjouterPlante.xaml;DetailsPlante.xaml;MainWindow.xaml;ModifierPlante.xaml;PageConnexion.xaml;PageTableauDeBordUser.xaml;Window1.xaml;
+26-536624903
+23396249905
+AjouterPlante.xaml;AjouterUtilisateur.xaml;DetailsPlante.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;MainWindow.xaml;ModifierPlante.xaml;PageConnexion.xaml;PageTableauDeBordUser.xaml;Window1.xaml;
 
 True
 

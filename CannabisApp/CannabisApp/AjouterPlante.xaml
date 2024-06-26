@@ -15,9 +15,9 @@
                 <GradientStop Color="#00FF7F" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="650" Height="390">
-                <TextBlock Text="Ajouter une Plante" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" Width="650">
+                <TextBlock Text="Ajouter une Plante" FontSize="30" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -35,25 +35,28 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="Description" Margin="0,10,10,5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="Description" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="0" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBox x:Name="Description" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
 
                     <TextBlock Text="Stade" Margin="0,10,10,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="Stade" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBox x:Name="Stade" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5"/>
 
-                    <TextBlock Text="Provenance" Margin="0,10,10,5" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                    <ComboBox x:Name="ProvenanceComboBox" Height="30" DisplayMemberPath="ville" SelectedValuePath="id_provenance" Grid.Row="2" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Identification" Margin="0,10,10,5" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Identification" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5"/>
 
-                    <TextBlock Text="Quantité (kg)" Margin="0,10,10,5" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="Quantite" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Provenance" Margin="0,10,10,5" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="ProvenanceComboBox" Height="30" DisplayMemberPath="Ville" SelectedValuePath="IdProvenance" Grid.Row="3" Grid.Column="1" Margin="0,5,0,5"/>
 
-                    <TextBlock Text="Date d'expiration" Margin="0,10,10,5" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="DateExpiration" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="4" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Quantité (kg)" Margin="0,10,10,5" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Quantite" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5"/>
 
-                    <TextBlock Text="Emplacement" Margin="0,10,10,5" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="Emplacement" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="5" Grid.Column="1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Date d'expiration" Margin="0,10,10,5" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="DateExpiration" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="5" Grid.Column="1" Margin="0,5,0,5"/>
+
+                    <TextBlock Text="Emplacement" Margin="0,10,10,5" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Emplacement" Height="30" Style="{StaticResource RoundedTextBox}" Grid.Row="6" Grid.Column="1" Margin="0,5,0,5"/>
                 </Grid>
 
-                <Button Content="Ajouter" Height="40" Width="150" HorizontalAlignment="Center" Margin="0,10,0,0" Style="{StaticResource RoundedButton}" Click="Ajouter_Click">
+                <Button Content="Ajouter" Height="40" Width="150" HorizontalAlignment="Center" Margin="0,5,0,0" Style="{StaticResource RoundedButton}" Click="Ajouter_Click">
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="#0D98BA" Offset="0.0"/>
