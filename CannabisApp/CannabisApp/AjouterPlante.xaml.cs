@@ -6,6 +6,7 @@ using QRCoder;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using DocumentFormat.OpenXml.InkML;
 
 namespace CannabisApp
 {
@@ -22,8 +23,19 @@ namespace CannabisApp
 
         private void LoadProvenances()
         {
-            var provenances = _context.Provenances.ToList();
+           
+
+            var provenances = _context.Provenances
+                                  .Select(p => new provenances
+                                  {
+                                     
+                                      ville = p.Ville,
+                                      province = p.Province,
+                                      pays = p.Pays
+                                  })
+                                  .ToList();
             ProvenanceComboBox.ItemsSource = provenances;
+            ProvenanceComboBox.DisplayMemberPath = "ville";
         }
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)

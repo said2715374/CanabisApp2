@@ -19,7 +19,11 @@ namespace CannabisApp
 
                 if (mainWindow != null)
                 {
+
                     mainWindow.MainFrame.Navigate(new TableauDeBord());
+
+
+                    mainWindow.MainFrame.Navigate(new AjouterPlante());
                 }
             }
             catch (Exception ex)
