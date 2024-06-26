@@ -60,11 +60,39 @@
                     <TextBlock x:Name="IdentificationText" Margin="0,10,0,5" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
                 </Grid>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                    <Button Content="Modifier ce produit" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Modifier_Click"/>
-                    <Button Content="Retirer ce produit" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Retirer_Click"/>
-                    <Button Content="Voir l'Historique" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click"/>
-                    <Button Content="Produit Suivant" Width="150" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="Suivant_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,50,0,0">
+                    <Button Content="Modifier ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Modifier_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Retirer ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Retirer_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Ajouter Un Autre Produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="AjouterAutre_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Voir l'Historique" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </Border>

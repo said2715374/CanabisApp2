@@ -13,22 +13,18 @@ namespace CannabisApp
 
         private void Connexion_Click(object sender, RoutedEventArgs e)
         {
-            string username = nomDutilisateur.Text;
-            string password = motDePasse.Password;
-
-            if (username == "admin" && password == "password") // Remplacer par une vraie vérification
+            try
             {
-                MessageBox.Show("Connexion réussie !");
-                // Naviguer vers la page principale après la connexion
                 var mainWindow = Window.GetWindow(this) as MainWindow;
+
                 if (mainWindow != null)
                 {
-                    mainWindow.MainFrame.Navigate(new Page2());
+                    mainWindow.MainFrame.Navigate(new TableauDeBord());
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.");
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 

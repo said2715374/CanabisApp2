@@ -1,80 +1,83 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using QRCoder;
-using System.Drawing;
+using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Media.Imaging;
-using System.Numerics;
+using Microsoft.EntityFrameworkCore;
 
 namespace CannabisApp
 {
     public partial class DetailsPlante : Page
     {
-        private plantes _plante;
+        private readonly AppDbContext _context;
+        private readonly int _planteId;
 
-        public DetailsPlante(plantes plante)
+        public DetailsPlante(int planteId)
         {
             InitializeComponent();
-            _plante = plante;
-            LoadPlanteDetails();
+            _context = new AppDbContext();
+            _planteId = planteId;
+            LoadPlanteDetails(planteId);
         }
 
-        private void LoadPlanteDetails()
+        private void LoadPlanteDetails(int planteId)
         {
-            NomPlante.Text = _plante.nom;
-            EmplacementText.Text = _plante.emplacement;
-            IdProvenanceText.Text = _plante.id_provenance.ToString();
-            EtatSanteText.Text = _plante.etat_sante.ToString();
-            NombrePlantesActivesText.Text = _plante.nombre_plantes_actives.ToString();
-            CreeLeText.Text = _plante.cree_le.ToString("d");
-            DateExpirationText.Text = _plante.date_expiration.ToString("d");
-            StadeText.Text = _plante.stade;
-            IdentificationText.Text = _plante.identification;
-
-            QRCodeImage.Source = GenererQRCode(_plante.code_qr);
-        }
-
-        private BitmapImage GenererQRCode(string text)
-        {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-            using (MemoryStream memory = new MemoryStream())
+            var plante = _context.Plantes.Include(p => p.Provenance).FirstOrDefault(p => p.IdPlante == planteId);
+            if (plante != null)
             {
-                qrCodeImage.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
-                memory.Position = 0;
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = memory;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-                return bitmapImage;
+                NomPlante.Text = plante.Nom;
+                EmplacementText.Text = plante.Emplacement;
+                IdProvenanceText.Text = $"{plante.Provenance.Ville}, {plante.Provenance.Province}";
+                EtatSanteText.Text = plante.EtatSante.ToString();
+                NombrePlantesActivesText.Text = plante.NombrePlantesActives.ToString();
+                CreeLeText.Text = plante.CreeLe.ToString("dd/MM/yyyy");
+                DateExpirationText.Text = plante.DateExpiration.ToString("dd/MM/yyyy");
+                StadeText.Text = plante.Stade;
+                IdentificationText.Text = plante.Identification;
+
+                // Afficher le code QR
+                if (!string.IsNullOrEmpty(plante.CodeQr))
+                {
+                    var qrCodeImage = new BitmapImage();
+                    qrCodeImage.BeginInit();
+                    qrCodeImage.StreamSource = new MemoryStream(Convert.FromBase64String(plante.CodeQr));
+                    qrCodeImage.EndInit();
+                    QRCodeImage.Source = qrCodeImage;
+                }
             }
         }
 
         private void Modifier_Click(object sender, RoutedEventArgs e)
         {
-            ModifierPlante modifierPage = new ModifierPlante(_plante.id_plante);
-            this.NavigationService.Navigate(modifierPage);
-        }        
-        
+            NavigationService.Navigate(new ModifierPlante(_planteId));
+        }
 
         private void Retirer_Click(object sender, RoutedEventArgs e)
         {
-            // Code pour retirer le produit
+            var plante = _context.Plantes.FirstOrDefault(p => p.IdPlante == _planteId);
+            if (plante != null)
+            {
+                _context.Plantes.Remove(plante);
+                _context.SaveChanges();
+                MessageBox.Show("Plante retirée avec succès.");
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("Plante non trouvée.");
+            }
+        }
+
+        private void AjouterAutre_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AjouterPlante());
         }
 
         private void VoirHistorique_Click(object sender, RoutedEventArgs e)
         {
-            HistoriquePlantePage historiquePage = new HistoriquePlantePage(_plante.id_plante);
-            this.NavigationService.Navigate(historiquePage);
-        }
-        private void Suivant_Click(object sender, RoutedEventArgs e)
-        {
-            // Code pour passer au produit suivant
+            NavigationService.Navigate(new HistoriquePlantePage(_planteId));
         }
     }
 }

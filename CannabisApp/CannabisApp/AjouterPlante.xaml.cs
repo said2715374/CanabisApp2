@@ -42,14 +42,10 @@ namespace CannabisApp
                 return;
             }
 
-            // Génération du code QR
-            var codeQr = GenererCodeQR(description, selectedProvenance.Ville);
-
             var nouvellePlante = new Plantes
             {
                 Nom = description,
                 Emplacement = emplacement,
-                CodeQr = codeQr,
                 EtatSante = 1, // Exemple de valeur par défaut
                 NombrePlantesActives = quantite,
                 DateExpiration = dateExpiration,
@@ -59,16 +55,22 @@ namespace CannabisApp
                 Identification = identification
             };
 
+            // Génération du code QR après avoir ajouté la plante pour obtenir son Id
             _context.Plantes.Add(nouvellePlante);
             _context.SaveChanges();
+
+            var codeQr = GenererCodeQR(nouvellePlante.IdPlante, description, selectedProvenance.Ville);
+            nouvellePlante.CodeQr = codeQr;
+            _context.SaveChanges();
+
             MessageBox.Show("Nouvelle plante ajoutée avec succès !");
         }
 
-        private string GenererCodeQR(string nom, string emplacement)
+        private string GenererCodeQR(int planteId, string nom, string emplacement)
         {
             using (var qrGenerator = new QRCodeGenerator())
             {
-                var qrCodeData = qrGenerator.CreateQrCode($"{nom} - {emplacement}", QRCodeGenerator.ECCLevel.Q);
+                var qrCodeData = qrGenerator.CreateQrCode($"{planteId} - {nom} - {emplacement}", QRCodeGenerator.ECCLevel.Q);
                 using (var qrCode = new QRCode(qrCodeData))
                 {
                     using (var qrCodeImage = qrCode.GetGraphic(20))

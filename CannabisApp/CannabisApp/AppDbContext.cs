@@ -16,7 +16,7 @@ namespace CannabisApp
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Integrated Security=True;",
+             "Server=DESKTOP-OE3OFRF\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;Trusted_Connection=True;",
                 sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
             );
         }
@@ -88,13 +88,17 @@ namespace CannabisApp
         public string Emplacement { get; set; }
         public string CodeQr { get; set; }
         public int IdProvenance { get; set; }
+        public Provenances Provenance { get; set; } // Propriété de navigation
         public int EtatSante { get; set; }
         public int NombrePlantesActives { get; set; }
         public DateTime DateExpiration { get; set; }
         public DateTime CreeLe { get; set; }
         public string Stade { get; set; }
         public string Identification { get; set; }
+
+        public string ProvenanceInfo => $"{Provenance.Ville}, {Provenance.Province}";
     }
+
 
     public class Roles
     {

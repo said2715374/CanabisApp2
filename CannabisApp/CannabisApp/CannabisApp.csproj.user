@@ -28,7 +28,10 @@
     <Compile Update="PageConnexion.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PageTableauDeBordUser.xaml.cs">
+    <Compile Update="PageInventaire.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TableauDeBord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Window1.xaml.cs">
@@ -60,7 +63,10 @@
     <Page Update="PageConnexion.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PageTableauDeBordUser.xaml">
+    <Page Update="PageInventaire.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TableauDeBord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window1.xaml">
