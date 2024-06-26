@@ -34,6 +34,9 @@
     <Compile Update="TableauDeBord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TableauDebordUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TableauDeBord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TableauDebordUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window1.xaml">

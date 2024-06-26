@@ -19,7 +19,23 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="750">
                 <DockPanel LastChildFill="False" Margin="0,0,0,20">
                     <TextBlock Text="Inventaire" FontSize="30" FontWeight="Bold" Margin="30,0,0,0" Foreground="#333" VerticalAlignment="Center" />
-                    <TextBox x:Name="SearchTextBox" Width="200" Height="30" Margin="80,0,0,0" VerticalAlignment="Center" Background="#00FF7F" Foreground="#FFFFFF" Text="Rechercher une plante" GotFocus="SearchTextBox_GotFocus" LostFocus="SearchTextBox_LostFocus" TextChanged="SearchTextBox_TextChanged"/>
+                    <TextBox x:Name="SearchTextBox" Width="200" Height="30" Margin="80,0,10,0" VerticalAlignment="Center" Background="#00FF7F" Foreground="#FFFFFF" Text="Rechercher une plante" GotFocus="SearchTextBox_GotFocus" LostFocus="SearchTextBox_LostFocus" TextChanged="SearchTextBox_TextChanged"/>
+                    <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="100" Height="30" Margin="10,0,0,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="100" Height="30" Margin="10,0,0,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                <GradientStop Color="#00FF7F" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
                 </DockPanel>
 
                 <ListView x:Name="PlantesListView" Width="700" Height="250" Margin="0,0,0,10" MouseDoubleClick="PlantesListView_MouseDoubleClick">

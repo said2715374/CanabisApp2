@@ -79,5 +79,14 @@ namespace CannabisApp
         {
             NavigationService.Navigate(new HistoriquePlantePage(_planteId));
         }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TableauDebordUser());
+        }
     }
 }
