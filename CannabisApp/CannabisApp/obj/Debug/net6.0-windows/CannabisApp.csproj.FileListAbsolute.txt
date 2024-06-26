@@ -276,3 +276,9 @@ C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.csproj.CopyComplete
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.genruntimeconfig.cache
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\ref\CannabisApp.dll
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterPlante.g.cs
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\DetailsPlante.g.cs
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\ModifierPlante.g.cs
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterPlante.baml
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\DetailsPlante.baml
+C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\ModifierPlante.baml
