@@ -20,11 +20,13 @@ namespace CannabisApp
     /// </summary>
     public partial class TableauDebordUser : Page
     {
-        public TableauDebordUser()
+        private string Username;
+        public TableauDebordUser(string username)
         {
             InitializeComponent();
-            // Remplacez "NomUtilisateur" par le nom d'utilisateur actuel
-            UsernameTextBlock.Text = "NomUtilisateur";
+            Username = username;
+            UsernameTextBlock.Text = Username;
+           
         }
 
 

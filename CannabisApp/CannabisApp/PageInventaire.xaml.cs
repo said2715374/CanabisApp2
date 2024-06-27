@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,8 +27,47 @@ namespace CannabisApp
 
         private void LoadPlantes()
         {
-            _allPlantes = _context.Plantes.Include(p => p.Provenance).ToList();
-            DisplayPage();
+            string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;Trusted_Connection=True;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT * FROM plantes";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        ObservableCollection<plantes> Plantes = new ObservableCollection<plantes>();
+                        while (reader.Read())
+                        {
+                            plantes plante = new plantes
+                            {
+                                id_plante = reader.GetInt32(reader.GetOrdinal("id_plante")),
+                                nom = reader.GetString(reader.GetOrdinal("nom")),
+                                emplacement = reader.GetString(reader.GetOrdinal("emplacement")),
+                                code_qr = reader.GetString(reader.GetOrdinal("code_qr")),
+                                id_provenance = reader.GetInt32(reader.GetOrdinal("id_provenance")),
+                                etat_sante = reader.GetInt32(reader.GetOrdinal("etat_sante")),
+                                nombre_plantes_actives = reader.GetInt32(reader.GetOrdinal("nombre_plantes_actives")),
+                                date_expiration = reader.GetDateTime(reader.GetOrdinal("date_expiration")),
+                                cree_le = reader.GetDateTime(reader.GetOrdinal("cree_le")),
+                                //stade = reader.GetString(reader.GetOrdinal("stade")),
+                                //identification = reader.GetString(reader.GetOrdinal("identification"))
+                            };
+                            Plantes.Add(plante);
+                        }
+
+                        // Assigner la liste des plantes à votre contrôle DataGrid
+                        PlantesListView.ItemsSource = Plantes;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du chargement des plantes : " + ex.Message);
+            }
         }
 
         private void DisplayPage()
@@ -45,7 +86,7 @@ namespace CannabisApp
 
         private void UpdatePageNumber()
         {
-            PageNumberText.Text = $"Page {_currentPage} / {(_allPlantes.Count + PageSize - 1) / PageSize}";
+            
         }
 
         private void PagePrecedente_Click(object sender, RoutedEventArgs e)
@@ -91,13 +132,7 @@ namespace CannabisApp
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var searchText = SearchTextBox.Text.ToLower();
-            _allPlantes = _context.Plantes
-                .Include(p => p.Provenance)
-                .Where(p => p.Nom.ToLower().Contains(searchText) || p.Provenance.Ville.ToLower().Contains(searchText) || p.Provenance.Province.ToLower().Contains(searchText))
-                .ToList();
-            _currentPage = 1;
-            DisplayPage();
+           
         }
 
         private void PlantesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -118,7 +153,7 @@ namespace CannabisApp
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TableauDebordUser());
+            //NavigationService.Navigate(new TableauDebordUser());
         }
     }
 }

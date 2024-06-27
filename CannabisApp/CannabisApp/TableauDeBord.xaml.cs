@@ -6,11 +6,13 @@ namespace CannabisApp
 {
     public partial class TableauDeBord : Page
     {
-        public TableauDeBord()
+        private string Username;
+        public TableauDeBord(string username)
         {
             InitializeComponent();
-            // Remplacez "NomUtilisateur" par le nom d'utilisateur actuel
-            UsernameTextBlock.Text = "NomUtilisateur";
+            Username = username;
+            UsernameTextBlock.Text = Username;
+           
         }
 
         private void AjouterPlante_Click(object sender, RoutedEventArgs e)

@@ -3,9 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CannabisApp.Converters"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Inventaire">
+
+    <Page.Resources>
+        <local:QRCodeImageConverter x:Key="QRCodeImageConverter"/>
+    </Page.Resources>
+
 
     <Grid>
         <Grid.Background>
@@ -41,16 +47,62 @@
                 <ListView x:Name="PlantesListView" Width="700" Height="250" Margin="0,0,0,10" MouseDoubleClick="PlantesListView_MouseDoubleClick">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Nom" Width="200" DisplayMemberBinding="{Binding Nom}" />
-                            <GridViewColumn Header="Provenance" Width="200" DisplayMemberBinding="{Binding ProvenanceInfo}" />
-                            <GridViewColumn Header="Stade" Width="200" DisplayMemberBinding="{Binding Stade}" />
-                            <GridViewColumn Header="QR Code" Width="100">
+                            <GridViewColumn Header="Nom" Width="auto" DisplayMemberBinding="{Binding nom}" />
+
+                            <GridViewColumn Header="État de santé" Width="auto">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Image Source="{Binding QRCodeImage}" Width="50" Height="50"/>
+                                        <Border Width="50" Height="20" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding etat_sante, StringFormat={}}">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Background" Value="LightGray"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding etat_sante}" Value="1">
+                                                                <Setter Property="Background" Value="#F44336"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding etat_sante}" Value="2">
+                                                                <Setter Property="Background" Value="#FF9800"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding etat_sante}" Value="3">
+                                                                <Setter Property="Background" Value="#FFEB3B"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding etat_sante}" Value="4">
+                                                                <Setter Property="Background" Value="#8BC34A"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding etat_sante}" Value="5">
+                                                                <Setter Property="Background" Value="#4CAF50"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Border>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+
+                            <GridViewColumn Header="Provenance" Width="auto" DisplayMemberBinding="{Binding emplacement}" />
+                            <GridViewColumn Header="Date de création" Width="auto" DisplayMemberBinding="{Binding cree_le}" />
+                            <GridViewColumn Header="Date d'expiration" Width="auto" DisplayMemberBinding="{Binding date_expiration}" />
+
+                           <GridViewColumn Header="Code QR" Width="100">
+    <GridViewColumn.CellTemplate>
+        <DataTemplate>
+            <Image Width="50" Height="50">
+                <Image.Source>
+                  
+                    <Binding Path="code_qr">
+                        <Binding.Converter>
+                            <local:QRCodeImageConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </Image.Source>
+            </Image>
+        </DataTemplate>
+    </GridViewColumn.CellTemplate>
+</GridViewColumn>
+
                         </GridView>
                     </ListView.View>
                 </ListView>

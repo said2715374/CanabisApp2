@@ -86,7 +86,7 @@ namespace CannabisApp
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TableauDebordUser());
+            //NavigationService.Navigate(new TableauDebordUser());
         }
     }
 }

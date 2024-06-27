@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 
 namespace CannabisApp
@@ -13,24 +14,65 @@ namespace CannabisApp
 
         private void Connexion_Click(object sender, RoutedEventArgs e)
         {
-            try
+            string username = nomDutilisateur.Text;
+            string password = motDePasse.Password;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                var mainWindow = Window.GetWindow(this) as MainWindow;
+                MessageBox.Show("Veuillez entrer un nom d'utilisateur et un mot de passe.");
+                return;
+            }
 
-                if (mainWindow != null)
+            // Connexion à la base de données
+            string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Trusted_Connection=True;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
                 {
+                    connection.Open();
+                    string query = "SELECT COUNT(*) FROM utilisateurs WHERE nom_utilisateur = @username AND mot_de_passe = @password";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
 
-                    mainWindow.MainFrame.Navigate(new TableauDeBord());
+                    int count = (int)command.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Connexion réussie !");
+                        string query1 = "SELECT id_role FROM utilisateurs WHERE nom_utilisateur = @username";
+                        SqlCommand command1 = new SqlCommand(query1, connection);
+                        command1.Parameters.AddWithValue("@username", username);
+                        int roleID = (int)command1.ExecuteScalar();
+
+                        if (roleID == 1) {
+                            if (Application.Current.MainWindow is MainWindow mainWindow)
+                            {
+                                mainWindow.MainFrame.Navigate(new TableauDeBord(username) );
+                            }
+                        }
+                        else if (roleID == 3)
+                        {
+                            if (Application.Current.MainWindow is MainWindow mainWindow)
+                            {
+                                mainWindow.MainFrame.Navigate(new TableauDebordUser(username));
+                            }
+                        }
 
 
-                    mainWindow.MainFrame.Navigate(new AjouterPlante());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur : " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
         }
+    
 
         private void Quitter_Click(object sender, RoutedEventArgs e)
         {
