@@ -10,5 +10,6 @@
     public DateTime date_expiration { get; set; }
     public DateTime cree_le { get; set; }
     public string stade { get; set; }
+    public string Note { get; set; }
     public string identification { get; set; }
 }

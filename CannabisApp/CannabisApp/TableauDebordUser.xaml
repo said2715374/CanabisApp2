@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CannabisApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1100"
       Title="TableauDebordUser">
 
     <Grid>
@@ -20,14 +20,14 @@
         <!-- StackPanel for the entire content -->
         <StackPanel>
             <!-- Navigation Bar -->
-            <DockPanel Background="White" Height="50" VerticalAlignment="Top">
-                <TextBlock Text="Tableau de Bord" FontSize="20" FontWeight="Bold" Foreground="#0D98BA" VerticalAlignment="Center" Margin="10" DockPanel.Dock="Left"/>
+            <DockPanel Background="White" Height="70" VerticalAlignment="Top">
+                <TextBlock Text="Tableau de Bord" FontSize="30" FontWeight="Bold" Foreground="#0D98BA" VerticalAlignment="Center" Margin="10" DockPanel.Dock="Left"/>
 
-                <TextBox x:Name="SearchTextBox" Width="200" Height="30" Margin="30,0,0,0" VerticalAlignment="Center" Background="#00FF7F" Foreground="#FFFFFF" HorizontalAlignment="Left" Text="Rechercher..." />
+                <TextBox x:Name="SearchTextBox" Width="300" Height="40" Margin="30,0,0,0" VerticalAlignment="Center" Background="#00FF7F" Foreground="#FFFFFF" HorizontalAlignment="Left" Text="Rechercher..." />
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
-                    <TextBlock x:Name="UsernameTextBlock" Text="NomUtilisateur" FontSize="16" VerticalAlignment="Center" Foreground="#333" Margin="0,0,10,0"/>
-                    <Button Content="Déconnecter" Width="100" Height="30" Style="{StaticResource RoundedButton}" Click="Deconnecter_Click">
+                    <TextBlock x:Name="UsernameTextBlock" Text="NomUtilisateur" FontSize="20" VerticalAlignment="Center" Foreground="#333" Margin="0,0,10,0"/>
+                    <Button Content="Déconnecter" Width="120" Height="40" FontSize="18" Style="{StaticResource RoundedButton}" Click="Deconnecter_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#0D98BA" Offset="0.0"/>
@@ -42,39 +42,39 @@
             <StackPanel Margin="20">
                 <!-- Statistiques générales -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Border Background="White" CornerRadius="10" Padding="20" Margin="10">
+                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
-                            <TextBlock Text="Nombre total de plantes" FontSize="20" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="100" FontSize="40" FontWeight="Bold" Foreground="#00FF7F"/>
+                            <TextBlock Text="Nombre total de plantes" FontSize="24" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock Text="100" FontSize="50" FontWeight="Bold" Foreground="#00FF7F"/>
                         </StackPanel>
                     </Border>
-                    <Border Background="White" CornerRadius="10" Padding="20" Margin="10">
+                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
-                            <TextBlock Text="Plantes en bonne santé" FontSize="20" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="80" FontSize="40" FontWeight="Bold" Foreground="#00FF7F"/>
+                            <TextBlock Text="Plantes en bonne santé" FontSize="24" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock Text="80" FontSize="50" FontWeight="Bold" Foreground="#00FF7F"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Border Background="White" CornerRadius="10" Padding="20" Margin="10">
+                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
-                            <TextBlock Text="Plantes nécessitant une attention" FontSize="20" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="20" FontSize="40" FontWeight="Bold" Foreground="Red"/>
+                            <TextBlock Text="Plantes nécessitant une attention" FontSize="24" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock Text="20" FontSize="50" FontWeight="Bold" Foreground="Red"/>
                         </StackPanel>
                     </Border>
-                    <Border Background="White" CornerRadius="10" Padding="20" Margin="10" Width="400">
+                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10" Width="500">
                         <StackPanel>
-                            <TextBlock Text="Notifications et Alertes" FontSize="20" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10"/>
-                            <TextBlock Text="2 plantes approchent de leur date d'expiration" FontSize="16" Foreground="Orange"/>
-                            <TextBlock Text="1 plante en mauvaise santé" FontSize="16" Foreground="Red"/>
+                            <TextBlock Text="Notifications et Alertes" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10"/>
+                            <TextBlock Text="2 plantes approchent de leur date d'expiration" FontSize="20" Foreground="Orange"/>
+                            <TextBlock Text="1 plante en mauvaise santé" FontSize="20" Foreground="Red"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
 
                 <!-- Actions rapides -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Ajouter une nouvelle plante" Width="170" Height="40" Margin="10" Style="{StaticResource RoundedButton}" Click="AjouterPlante_Click">
+                    <Button Content="Ajouter une nouvelle plante" Width="220" Height="50" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="AjouterPlante_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
@@ -85,7 +85,7 @@
 
                         </Button.Background>
                     </Button>
-                    <Button Content="Accéder à l'inventaire" Width="170" Height="40" Margin="10" Style="{StaticResource RoundedButton}" Click="AccederInventaire_Click">
+                    <Button Content="Accéder à l'inventaire" Width="220" Height="50" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="AccederInventaire_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
@@ -96,7 +96,7 @@
 
                         </Button.Background>
                     </Button>
-                    <Button Content="Voir l'historique" Width="170" Height="40" Margin="10" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
+                    <Button Content="Voir l'historique" Width="220" Height="50" Margin="10" FontSize="16" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
@@ -107,8 +107,6 @@
 
                         </Button.Background>
                     </Button>
-                    
-                    
                 </StackPanel>
             </StackPanel>
         </StackPanel>

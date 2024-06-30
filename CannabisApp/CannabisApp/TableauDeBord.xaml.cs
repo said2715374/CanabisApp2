@@ -30,7 +30,7 @@ namespace CannabisApp
             NavigationService.Navigate(new HisPlantes());
         }
 
-        private void AjouterUtilisateur_Click(object sender, RoutedEventArgs e)
+        private void GererUser_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AjouterUtilisateur());
         }

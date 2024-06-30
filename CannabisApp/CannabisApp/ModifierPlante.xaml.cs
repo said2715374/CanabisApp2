@@ -15,6 +15,8 @@ namespace CannabisApp
             _context = new AppDbContext();
             _planteId = planteId;
             ChargerPlante(planteId);
+            LoadProvenances();
+            LoadEmplacements();
         }
 
         private void ChargerPlante(int planteId)
@@ -23,13 +25,27 @@ namespace CannabisApp
             if (plante != null)
             {
                 Description.Text = plante.Nom;
-                Stade.Text = plante.Stade;
+                StadeComboBox.SelectedItem = StadeComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == plante.Stade);
                 Identification.Text = plante.Identification;
                 ProvenanceComboBox.SelectedValue = plante.IdProvenance;
                 Quantite.Text = plante.NombrePlantesActives.ToString();
                 DateExpiration.Text = plante.DateExpiration.ToString("yyyy-MM-dd");
-                Emplacement.Text = plante.Emplacement;
+                EtatSanteComboBox.SelectedItem = EtatSanteComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == plante.EtatSante.ToString());
+                EmplacementComboBox.SelectedItem = plante.Emplacement;
+                NoteTextBox.Text = plante.Note;
             }
+        }
+
+        private void LoadProvenances()
+        {
+            var provenances = _context.Provenances.ToList();
+            ProvenanceComboBox.ItemsSource = provenances;
+        }
+
+        private void LoadEmplacements()
+        {
+            var emplacements = _context.Plantes.Select(p => p.Emplacement).Distinct().ToList();
+            EmplacementComboBox.ItemsSource = emplacements;
         }
 
         private void Modifier_Click(object sender, RoutedEventArgs e)
@@ -38,18 +54,20 @@ namespace CannabisApp
             if (plante != null)
             {
                 plante.Nom = Description.Text;
-                plante.Stade = Stade.Text;
+                plante.Stade = (StadeComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
                 plante.Identification = Identification.Text;
                 plante.IdProvenance = (int)ProvenanceComboBox.SelectedValue;
                 plante.NombrePlantesActives = int.Parse(Quantite.Text);
                 plante.DateExpiration = DateTime.Parse(DateExpiration.Text);
-                plante.Emplacement = Emplacement.Text;
+                plante.EtatSante = int.Parse((EtatSanteComboBox.SelectedItem as ComboBoxItem)?.Content.ToString());
+                plante.Emplacement = EmplacementComboBox.SelectedItem.ToString();
+                plante.Note = NoteTextBox.Text;
 
                 _context.SaveChanges();
                 MessageBox.Show("Plante modifiée avec succès !");
-                // Naviguer vers la page précédente ou une autre page après la modification
             }
         }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -60,5 +78,9 @@ namespace CannabisApp
             //NavigationService.Navigate(new TableauDebordUser());
         }
 
+        private void AjouterEmplacement_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AjouterEmplacement());
+        }
     }
 }

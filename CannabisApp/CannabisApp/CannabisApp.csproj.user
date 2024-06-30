@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AjouterEmplacement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AjouterPlante.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,6 +19,12 @@
     <Compile Update="DetailsPlante.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DetailsUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GererUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="HistoriquePlantePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +32,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ModifierPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModifierUtilisateur.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PageConnexion.xaml.cs">
@@ -42,6 +54,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AjouterEmplacement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AjouterPlante.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -49,6 +64,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="DetailsPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailsUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GererUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="HistoriquePlantePage.xaml">
@@ -61,6 +82,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ModifierPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModifierUtilisateur.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PageConnexion.xaml">

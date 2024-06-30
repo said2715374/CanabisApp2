@@ -256,7 +256,6 @@ C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterPlante.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageConnexion.g.cs
-C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageTableauDeBordUser.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\Window1.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp_MarkupCompile.cache
@@ -264,7 +263,6 @@ C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterPlante.baml
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageConnexion.baml
-C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageTableauDeBordUser.baml
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\Window1.baml
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.g.resources
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -305,3 +303,12 @@ C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDebordUser.g.cs
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDebordUser.baml
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDeBord.baml
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageInventaire.g.cs
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDeBord.g.cs
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDebordUser.g.cs
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageInventaire.baml
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDebordUser.baml

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:CannabisApp"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1100"
       Title="DetailsPlante">
 
     <Grid>
@@ -15,73 +15,16 @@
                 <GradientStop Color="#00FF7F" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="650">
-                <DockPanel LastChildFill="False" Margin="0,0,0,10">
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Left">
-                        <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30" Margin="0,0,10,0">
-                            <Button.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
-                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </Button.Background>
-                        </Button>
-                        <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="80" Height="30">
-                            <Button.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
-                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
-                                </LinearGradientBrush>
-                            </Button.Background>
-                        </Button>
-                    </StackPanel>
-                </DockPanel>
-                <DockPanel LastChildFill="False" Margin="0,0,0,10">
-                    <TextBlock x:Name="NomPlante" Text="Nom de la Plante" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-                    <Image x:Name="QRCodeImage" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Right" Margin="10,0,0,0"/>
-                </DockPanel>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20" Width="1070" Height="670" VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    <TextBlock Text="Emplacement:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="EmplacementText" Margin="0,10,0,5" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Provenance:" Margin="0,10,10,5" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="IdProvenanceText" Margin="0,10,0,5" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="État de Santé:" Margin="0,10,10,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="EtatSanteText" Margin="0,10,0,5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Quantité Disponible (kg):" Margin="0,10,10,5" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="NombrePlantesActivesText" Margin="0,10,0,5" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Date d'Ajout:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="CreeLeText" Margin="0,10,0,5" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Date d'Expiration:" Margin="0,10,10,5" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="DateExpirationText" Margin="0,10,0,5" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Stade:" Margin="0,10,10,5" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="StadeText" Margin="0,10,0,5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
-
-                    <TextBlock Text="Identification:" Margin="0,10,10,5" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
-                    <TextBlock x:Name="IdentificationText" Margin="0,10,0,5" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
-                </Grid>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,0">
-                    <Button Content="Modifier ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Modifier_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="0">
+                    <Button Content="Retour" Click="Back_Click" Style="{StaticResource RoundedButton}" Width="100" Height="40" Margin="0,0,10,0">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#0D98BA" Offset="0.0"/>
@@ -89,23 +32,7 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Button Content="Retirer ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Retirer_Click">
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#0D98BA" Offset="0.0"/>
-                                <GradientStop Color="#00FF7F" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button Content="Ajouter Un Autre Produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="AjouterAutre_Click">
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#0D98BA" Offset="0.0"/>
-                                <GradientStop Color="#00FF7F" Offset="1.0"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button Content="Voir l'Historique" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
+                    <Button Content="Home" Click="Home_Click" Style="{StaticResource RoundedButton}" Width="100" Height="40" Margin="0,0,20,0">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#0D98BA" Offset="0.0"/>
@@ -114,7 +41,87 @@
                         </Button.Background>
                     </Button>
                 </StackPanel>
-            </StackPanel>
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="900" Grid.Row="1">
+                    <DockPanel LastChildFill="False" Margin="0,0,0,10">
+                        <TextBlock x:Name="NomPlante" Text="Nom de la Plante" FontSize="40" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top"/>
+                        <Image x:Name="QRCodeImage" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" DockPanel.Dock="Right" Margin="10,0,0,0"/>
+                    </DockPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Emplacement:" Margin="0,15,10,15" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="EmplacementText" Margin="0,15,0,15" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Provenance:" Margin="0,15,10,15" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="IdProvenanceText" Margin="0,15,0,15" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="État de Santé:" Margin="0,15,10,15" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="EtatSanteText" Margin="0,15,0,15" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Quantité Disponible (kg):" Margin="0,15,10,15" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="NombrePlantesActivesText" Margin="0,15,0,15" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Date d'Ajout:" Margin="0,15,10,15" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="CreeLeText" Margin="0,15,0,15" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Date d'Expiration:" Margin="0,15,10,15" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="DateExpirationText" Margin="0,15,0,15" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Stade:" Margin="0,15,10,15" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="StadeText" Margin="0,15,0,15" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16"/>
+
+                        <TextBlock Text="Identification:" Margin="0,15,10,15" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="16"/>
+                        <TextBlock x:Name="IdentificationText" Margin="0,15,0,15" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" FontSize="16"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,0">
+                        <Button Content="Modifier ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Modifier_Click">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Retirer ce produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="Retirer_Click">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Ajouter Un Autre Produit" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="AjouterAutre_Click">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Voir l'Historique" Width="150" Height="40" Margin="5" FontSize="13" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#0D98BA" Offset="0.0"/>
+                                    <GradientStop Color="#00FF7F" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </Page>

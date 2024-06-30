@@ -95,6 +95,7 @@ namespace CannabisApp
         public DateTime DateExpiration { get; set; }
         public DateTime CreeLe { get; set; }
         public string Stade { get; set; }
+        public string Note { get; set; }
         public string Identification { get; set; }
 
         public string ProvenanceInfo => $"{Provenance.Ville}, {Provenance.Province}";

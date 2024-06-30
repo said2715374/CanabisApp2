@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CannabisApp
 {
-    class utilisateur
+    public class utilisateur
     {
         public int id_utilisateur { get; set; }
         public string nom_utilisateur { get; set; }

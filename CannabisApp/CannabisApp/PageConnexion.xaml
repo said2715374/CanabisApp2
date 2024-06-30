@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:CannabisApp"
       mc:Ignorable="d"
-      d:Height="520" Width="820"
+      d:Height="700" Width="1100"
       Title="Page1">
 
     <Grid>

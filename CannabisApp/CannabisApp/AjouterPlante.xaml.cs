@@ -6,7 +6,6 @@ using QRCoder;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using DocumentFormat.OpenXml.InkML;
 
 namespace CannabisApp
 {
@@ -19,38 +18,49 @@ namespace CannabisApp
             InitializeComponent();
             _context = new AppDbContext();
             LoadProvenances();
+            LoadEmplacements();
         }
 
         private void LoadProvenances()
         {
-           
-
             var provenances = _context.Provenances
-                                  .Select(p => new provenances
+                                  .Select(p => new
                                   {
-                                     
-                                      ville = p.Ville,
-                                      province = p.Province,
-                                      pays = p.Pays
+                                      p.IdProvenance,
+                                      p.Ville,
+                                      p.Province,
+                                      p.Pays
                                   })
                                   .ToList();
             ProvenanceComboBox.ItemsSource = provenances;
-            ProvenanceComboBox.DisplayMemberPath = "ville";
+            ProvenanceComboBox.DisplayMemberPath = "Ville";
+            ProvenanceComboBox.SelectedValuePath = "IdProvenance";
+        }
+
+        private void LoadEmplacements()
+        {
+            var emplacements = _context.Plantes
+                                   .Select(e => e.Emplacement)
+                                   .Distinct()
+                                   .ToList();
+            EmplacementComboBox.ItemsSource = emplacements;
         }
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             var description = Description.Text;
-            var stade = Stade.Text;
+            var stade = ((ComboBoxItem)StadeComboBox.SelectedItem)?.Content.ToString() ?? string.Empty;
             var identification = Identification.Text;
-            var selectedProvenance = (Provenances)ProvenanceComboBox.SelectedItem;
+            var selectedProvenance = (int?)ProvenanceComboBox.SelectedValue;
             var quantite = int.Parse(Quantite.Text);
             var dateExpiration = DateTime.Parse(DateExpiration.Text);
-            var emplacement = Emplacement.Text;
+            var etatSante = ((ComboBoxItem)EtatSanteComboBox.SelectedItem)?.Content.ToString() ?? string.Empty;
+            var emplacement = EmplacementComboBox.SelectedItem?.ToString();
+            var note = NoteTextBox.Text;
 
-            if (selectedProvenance == null)
+            if (selectedProvenance == null || emplacement == null)
             {
-                MessageBox.Show("Veuillez sélectionner une provenance.");
+                MessageBox.Show("Veuillez sélectionner une provenance et un emplacement.");
                 return;
             }
 
@@ -62,16 +72,16 @@ namespace CannabisApp
                 NombrePlantesActives = quantite,
                 DateExpiration = dateExpiration,
                 CreeLe = DateTime.Now,
-                IdProvenance = selectedProvenance.IdProvenance,
+                IdProvenance = selectedProvenance.Value,
                 Stade = stade,
-                Identification = identification
+                Identification = identification,
+                Note = note
             };
 
-            // Génération du code QR après avoir ajouté la plante pour obtenir son Id
             _context.Plantes.Add(nouvellePlante);
             _context.SaveChanges();
 
-            var codeQr = GenererCodeQR(nouvellePlante.IdPlante, description, selectedProvenance.Ville);
+            var codeQr = GenererCodeQR(nouvellePlante.IdPlante, description, emplacement);
             nouvellePlante.CodeQr = codeQr;
             _context.SaveChanges();
 
@@ -101,6 +111,7 @@ namespace CannabisApp
                 return Convert.ToBase64String(ms.ToArray());
             }
         }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -108,7 +119,12 @@ namespace CannabisApp
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new TableauDebordUser());
+            // NavigationService.Navigate(new TableauDebordUser());
+        }
+
+        private void AjouterEmplacement_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AjouterEmplacement());
         }
     }
 }
