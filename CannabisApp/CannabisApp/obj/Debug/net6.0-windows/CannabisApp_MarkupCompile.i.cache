@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml
-16-1121777310
+181581543700
 
-33-1513023986
+35546638016
 243-1214179081
-AjouterEmplacement.xaml;AjouterPlante.xaml;AjouterUtilisateur.xaml;DetailsPlante.xaml;DetailsUser.xaml;GererUser.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;MainWindow.xaml;ModifierPlante.xaml;ModifierUtilisateur.xaml;PageConnexion.xaml;PageInventaire.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
+AjouterEmplacement.xaml;AjouterPlante.xaml;AjouterProvenance.xaml;AjouterUtilisateur.xaml;DetailsPlante.xaml;DetailsUser.xaml;GererUser.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;MainWindow.xaml;ModifierPlante.xaml;ModifierUtilisateur.xaml;PageConnexion.xaml;PageInventaire.xaml;RetirerPlante.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
 
 True
 

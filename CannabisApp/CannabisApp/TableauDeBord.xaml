@@ -40,35 +40,31 @@
 
             <!-- Content of the dashboard -->
             <StackPanel Margin="20">
-                <!-- Statistiques générales -->
+                <!-- Graphique de remplissage -->
+                <Border Background="White" CornerRadius="10" Padding="30" Margin="10" HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="Niveau de remplissage de l'entrepôt" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                        <Grid Width="200" Height="200">
+                            <Ellipse Stroke="LightGray" StrokeThickness="20"/>
+                            <Path x:Name="ProgressPath" StrokeThickness="20" Stroke="LightGray"/>
+                            <TextBlock x:Name="TotalPlantesText" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,60,50,0"/>
+                            <TextBlock x:Name="PercentageText" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Statistiques -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                     <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
                             <TextBlock Text="Nombre total de plantes" FontSize="24" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="100" FontSize="50" FontWeight="Bold" Foreground="#00FF7F"/>
-
+                            <TextBlock x:Name="NombreTotalPlantesTextBlock" Text="100" FontSize="50" FontWeight="Bold" Foreground="#00FF7F"/>
                         </StackPanel>
                     </Border>
                     <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
                         <StackPanel>
-                            <TextBlock Text="Plantes en bonne santé" FontSize="24" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="80" FontSize="50" FontWeight="Bold" Foreground="#00FF7F"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10">
-                        <StackPanel>
-                            <TextBlock Text="Plantes nécessitant une attention" FontSize="24" FontWeight="Bold" Foreground="#333"/>
-                            <TextBlock Text="20" FontSize="50" FontWeight="Bold" Foreground="Red"/>
-                        </StackPanel>
-                    </Border>
-                    <Border Background="White" CornerRadius="10" Padding="30" Margin="10" Width="500">
-                        <StackPanel>
-                            <TextBlock Text="Notifications et Alertes" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10"/>
-                            <TextBlock Text="2 plantes approchent de leur date d'expiration" FontSize="20" Foreground="Orange"/>
-                            <TextBlock Text="1 plante en mauvaise santé" FontSize="20" Foreground="Red"/>
+                            <TextBlock Text="Plantes en mauvaise santé" FontSize="24" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock x:Name="PlantesMauvaiseSanteTextBlock" Text="20" FontSize="50" FontWeight="Bold" Foreground="Red"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -79,44 +75,32 @@
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
-                                <!-- Bleu Dodger -->
                                 <GradientStop Color="#87CEFA" Offset="1.0"/>
-                                <!-- Bleu Clair -->
                             </LinearGradientBrush>
-
                         </Button.Background>
                     </Button>
                     <Button Content="Accéder à l'inventaire" Width="220" Height="50" Margin="10" Style="{StaticResource RoundedButton}" Click="AccederInventaire_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
-                                <!-- Bleu Dodger -->
                                 <GradientStop Color="#87CEFA" Offset="1.0"/>
-                                <!-- Bleu Clair -->
                             </LinearGradientBrush>
-
                         </Button.Background>
                     </Button>
                     <Button Content="Voir l'historique" Width="220" Height="50" Margin="10" Style="{StaticResource RoundedButton}" Click="VoirHistorique_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
-                                <!-- Bleu Dodger -->
                                 <GradientStop Color="#87CEFA" Offset="1.0"/>
-                                <!-- Bleu Clair -->
                             </LinearGradientBrush>
-
                         </Button.Background>
                     </Button>
                     <Button Content="Gérer les Utilisateurs" Width="220" Height="50" Margin="10" Style="{StaticResource RoundedButton}" Click="GererUser_Click">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#1E90FF" Offset="0.0"/>
-                                <!-- Bleu Dodger -->
                                 <GradientStop Color="#87CEFA" Offset="1.0"/>
-                                <!-- Bleu Clair -->
                             </LinearGradientBrush>
-
                         </Button.Background>
                     </Button>
                 </StackPanel>

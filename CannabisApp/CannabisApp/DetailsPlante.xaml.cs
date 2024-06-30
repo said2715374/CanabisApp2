@@ -56,18 +56,7 @@ namespace CannabisApp
 
         private void Retirer_Click(object sender, RoutedEventArgs e)
         {
-            var plante = _context.Plantes.FirstOrDefault(p => p.IdPlante == _planteId);
-            if (plante != null)
-            {
-                _context.Plantes.Remove(plante);
-                _context.SaveChanges();
-                MessageBox.Show("Plante retirée avec succès.");
-                NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("Plante non trouvée.");
-            }
+            NavigationService.Navigate(new RetirerPlante(_planteId));
         }
 
         private void AjouterAutre_Click(object sender, RoutedEventArgs e)
