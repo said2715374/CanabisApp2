@@ -12,4 +12,5 @@
     public string stade { get; set; }
     public string Note { get; set; }
     public string identification { get; set; }
+    public int id_Enterposage { get; set; }
 }

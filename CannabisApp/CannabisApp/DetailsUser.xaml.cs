@@ -1,19 +1,23 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Data.SqlClient;
 using System.Windows.Controls;
 
 namespace CannabisApp
 {
     public partial class DetailsUser : Page
     {
+        private readonly AppDbContext _context;
         public DetailsUser(utilisateur selectedUser)
         {
             InitializeComponent();
-
+            _context = new AppDbContext();
+            
             // Set the details of the selected user
             NomUtilisateurText.Text = selectedUser.nom_utilisateur;
             RoleText.Text = selectedUser.id_role.ToString();
         }
-
+        
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();

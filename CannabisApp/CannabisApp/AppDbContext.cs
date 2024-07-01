@@ -12,6 +12,7 @@ namespace CannabisApp
         public DbSet<Plantes> Plantes { get; set; }
         public DbSet<Historique_Plantes> HistoriquePlantes { get; set; }
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<Roles> Enterposage { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -55,6 +56,14 @@ namespace CannabisApp
                 .WithMany()
                 .HasForeignKey(u => u.IdRole)
                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Enterposage>().HasKey(e => e.id);
+            modelBuilder.Entity<Plantes>()
+                .HasOne<Enterposage>()
+                .WithMany()
+                .HasForeignKey(p => p.id_Enterposage)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
         }
     }
 
@@ -97,6 +106,10 @@ namespace CannabisApp
         public string Stade { get; set; }
         public string Note { get; set; }
         public string Identification { get; set; }
+        public int id_Enterposage { get; set; }
+        public string Quentite { get; set; }
+        public string Discription { get; set; }
+
 
         public string ProvenanceInfo => $"{Provenance.Ville}, {Provenance.Province}";
     }

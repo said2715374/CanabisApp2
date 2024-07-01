@@ -53,13 +53,12 @@ namespace CannabisApp
                                 nombre_plantes_actives = reader.GetInt32(reader.GetOrdinal("nombre_plantes_actives")),
                                 date_expiration = reader.GetDateTime(reader.GetOrdinal("date_expiration")),
                                 cree_le = reader.GetDateTime(reader.GetOrdinal("cree_le")),
-                                //stade = reader.GetString(reader.GetOrdinal("stade")),
-                                //identification = reader.GetString(reader.GetOrdinal("identification"))
+                             
                             };
                             Plantes.Add(plante);
                         }
 
-                        // Assigner la liste des plantes à votre contrôle DataGrid
+                       
                         PlantesListView.ItemsSource = Plantes;
                     }
                 }
