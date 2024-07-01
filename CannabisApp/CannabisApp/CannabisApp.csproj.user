@@ -13,6 +13,9 @@
     <Compile Update="AjouterPlante.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AjouterProvenance.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AjouterUtilisateur.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
     <Compile Update="PageInventaire.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="RetirerPlante.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TableauDeBord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -58,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AjouterPlante.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AjouterProvenance.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AjouterUtilisateur.xaml">
@@ -91,6 +100,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PageInventaire.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RetirerPlante.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TableauDeBord.xaml">
