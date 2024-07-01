@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
-using System.Data.SqlClient;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -9,56 +7,14 @@ namespace CannabisApp
 {
     public partial class GererUser : Page
     {
-        private readonly AppDbContext _context;
         public GererUser()
         {
             InitializeComponent();
-            _context = new AppDbContext();
-            LoadUsers();
-        }
-
-        private void LoadUsers()
-        {
-            string connectionString = "Server=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Trusted_Connection=True;";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = "SELECT * FROM utilisateurs";
-                    SqlCommand command = new SqlCommand(query, connection);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        ObservableCollection<Utilisateur> utilisateurs = new ObservableCollection<Utilisateur>();
-                        while (reader.Read())
-                        {
-                            Utilisateur utilisateur = new Utilisateur
-                            {
-                                IdUtilisateur = reader.GetInt32(reader.GetOrdinal("id_utilisateur")),      
-                                NomUtilisateur = reader.GetString(reader.GetOrdinal("nom_utilisateur")),   
-                                MotDePasse = reader.GetString(reader.GetOrdinal("mot_de_passe")),          
-                                IdRole = reader.GetInt32(reader.GetOrdinal("id_role"))                     
-                            };
-                            utilisateurs.Add(utilisateur); 
-                        }
-
-                        
-                        UsersListView.ItemsSource = utilisateurs;
-                       
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors du chargement des utilisateurs : " + ex.Message);
-            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            // Code pour retourner à la page précédente
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -76,10 +32,10 @@ namespace CannabisApp
         {
             // Code pour naviguer vers la page DetailsUser avec l'utilisateur sélectionné
             var selectedUser = (User)UsersListView.SelectedItem;
-            //if (selectedUser != null)
-            //{
-            //    NavigationService.Navigate(new DetailsUser());
-            //}
+            if (selectedUser != null)
+            {
+                NavigationService.Navigate(new DetailsUser(selectedUser));
+            }
         }
 
         private void SearchTextBox_GotFocus(object sender, RoutedEventArgs e)

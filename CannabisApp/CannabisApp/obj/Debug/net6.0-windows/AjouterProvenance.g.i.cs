@@ -78,7 +78,7 @@ namespace CannabisApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CannabisApp;component/ajouterprovenance.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CannabisApp;V1.0.0.0;component/ajouterprovenance.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AjouterProvenance.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

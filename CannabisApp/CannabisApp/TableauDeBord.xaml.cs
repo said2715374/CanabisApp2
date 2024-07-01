@@ -67,7 +67,7 @@ namespace CannabisApp
 
         private void GererUser_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new GererUser());
+            NavigationService.Navigate(new AjouterUtilisateur());
         }
 
         private void Deconnecter_Click(object sender, RoutedEventArgs e)

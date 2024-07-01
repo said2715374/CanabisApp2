@@ -312,6 +312,7 @@ C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageInventaire.baml
 C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\TableauDebordUser.baml
+<<<<<<< HEAD
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\DetailsUser.baml
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterEmplacement.g.cs
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\DetailsUser.g.cs
@@ -322,3 +323,5 @@ C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\ModifierUtilisateur.baml
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\AjouterProvenance.g.cs
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\RetirerPlante.g.cs
+=======
+>>>>>>> parent of 4e7cbe5 (correction)

@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\
 CannabisApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml
 181581543700
 
 341322438597
 243806968039
 AjouterEmplacement.xaml;AjouterPlante.xaml;AjouterProvenance.xaml;AjouterUtilisateur.xaml;DetailsPlante.xaml;DetailsUser.xaml;GererUser.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;MainWindow.xaml;ModifierPlante.xaml;ModifierUtilisateur.xaml;PageConnexion.xaml;PageInventaire.xaml;RetirerPlante.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
+=======
+C:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\App.xaml
+1252373817
+
+27-52624640
+243-1214179081
+AjouterPlante.xaml;AjouterUtilisateur.xaml;DetailsPlante.xaml;HisPlantes.xaml;HistoriquePlantePage.xaml;MainWindow.xaml;ModifierPlante.xaml;PageConnexion.xaml;PageInventaire.xaml;TableauDeBord.xaml;TableauDebordUser.xaml;Window1.xaml;
+>>>>>>> parent of 4e7cbe5 (correction)
 
 True
 

@@ -69,7 +69,7 @@ namespace CannabisApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CannabisApp;component/detailsuser.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CannabisApp;V1.0.0.0;component/detailsuser.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\DetailsUser.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

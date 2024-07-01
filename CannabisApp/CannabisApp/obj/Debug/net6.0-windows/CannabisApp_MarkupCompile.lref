@@ -1,5 +1,6 @@
 ﻿
 
+<<<<<<< HEAD
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterEmplacement.xaml;;
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterPlante.xaml;;
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterUtilisateur.xaml;;
@@ -15,4 +16,15 @@ FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\TableauDebor
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\Window1.xaml;;
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterProvenance.xaml;;
 FC:\Users\user\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\RetirerPlante.xaml;;
+=======
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterPlante.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\AjouterUtilisateur.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\DetailsPlante.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\HistoriquePlantePage.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\ModifierPlante.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\PageConnexion.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\PageInventaire.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\TableauDebordUser.xaml;;
+FC:\Users\louni\OneDrive\Documents\GitHub\CanabisApp2\CannabisApp\CannabisApp\Window1.xaml;;
+>>>>>>> parent of 4e7cbe5 (correction)
 

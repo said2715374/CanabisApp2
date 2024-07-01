@@ -50,9 +50,9 @@
                 <ListView x:Name="UsersListView" Width="1000" Height="500" Margin="0,0,0,10" MouseDoubleClick="UsersListView_MouseDoubleClick">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Nom" Width="auto" DisplayMemberBinding="{Binding nom_utilisateur}" />
+                            <GridViewColumn Header="Nom" Width="auto" DisplayMemberBinding="{Binding NomUtilisateur}" />
                             <GridViewColumn Header="Email" Width="auto" DisplayMemberBinding="{Binding Email}" />
-                            <GridViewColumn Header="Rôle" Width="auto" DisplayMemberBinding="{Binding id_role}" />
+                            <GridViewColumn Header="Rôle" Width="auto" DisplayMemberBinding="{Binding Role}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
