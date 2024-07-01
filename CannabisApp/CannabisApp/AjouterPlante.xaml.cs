@@ -126,5 +126,10 @@ namespace CannabisApp
         {
             NavigationService.Navigate(new AjouterEmplacement());
         }
+
+        private void AjouterProvenace_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
